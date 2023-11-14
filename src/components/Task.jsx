@@ -1,3 +1,5 @@
+
+
 import React, { useState } from 'react';
 
 const Task = ({ task, onToggleCompleted, onDelete, onEdit }) => {
@@ -24,7 +26,7 @@ const Task = ({ task, onToggleCompleted, onDelete, onEdit }) => {
 
   const handleCancelEdit = () => {
     setIsEditing(false);
-    // Reset edited values
+    
     setEditedTitle(task.name);
     setEditedDescription(task.description);
   };
@@ -65,5 +67,9 @@ const Task = ({ task, onToggleCompleted, onDelete, onEdit }) => {
 };
 
 export default Task;
+
+
+
+
 
 
