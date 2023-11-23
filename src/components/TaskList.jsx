@@ -1,12 +1,15 @@
-
+// components/TaskList.js
 import React from 'react';
+import { Box, Heading, UnorderedList } from '@chakra-ui/react';
 import Task from './Task';
 
 const TaskList = ({ tasks, onToggleCompleted, onDelete, onEdit }) => {
   return (
-    <div>
-      <h2>Task List</h2>
-      <ul>
+    <Box>
+      <Heading as="h2" size="lg" mb="4">
+        Task List
+      </Heading>
+      <UnorderedList>
         {tasks.map((task) => (
           <Task
             key={task.id}
@@ -16,12 +19,14 @@ const TaskList = ({ tasks, onToggleCompleted, onDelete, onEdit }) => {
             onEdit={onEdit}
           />
         ))}
-      </ul>
-    </div>
+      </UnorderedList>
+    </Box>
   );
 };
 
 export default TaskList;
+
+
 
 
 
