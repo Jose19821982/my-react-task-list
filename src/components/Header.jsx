@@ -19,7 +19,7 @@ const Header = ({ addTask }) => {
     const { name, value } = e.target;
     setNewTask((prevTask) => ({ ...prevTask, [name]: value }));
 
-    // Validaciones
+
     if (name === 'name') {
       setNameError(value.length < 3 ? 'Name must be at least 3 characters' : '');
     } else if (name === 'description') {
@@ -33,7 +33,6 @@ const Header = ({ addTask }) => {
       addTask(newTask);
       setNewTask({ name: '', description: '', completed: false });
     } else {
-      // Mostrar mensaje de error
       alert('Invalid input. Please check the form.');
     }
   };
@@ -43,7 +42,7 @@ const Header = ({ addTask }) => {
       <Heading as="h1" size="xl" mb="4">
         My React Task List
       </Heading>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} style={{ margin: '0 auto', maxWidth: '400px', width: '100%' }}>
         <FormControl mb="2" isInvalid={nameError !== ''}>
           <FormLabel>Task Name:</FormLabel>
           <Input
@@ -73,3 +72,6 @@ const Header = ({ addTask }) => {
 };
 
 export default Header;
+
+
+

@@ -1,4 +1,4 @@
-// components/Task.js
+
 import React, { useState } from 'react';
 import { Box, Text, Checkbox, Button, Input } from '@chakra-ui/react';
 
@@ -23,13 +23,13 @@ const Task = ({ task, onToggleCompleted, onDelete, onEdit }) => {
     onEdit(task.id, editedTitle, editedDescription);
     setIsEditing(false);
   };
-  
+
   const handleCancelEdit = () => {
     setIsEditing(false);
     setEditedTitle(task.name);
     setEditedDescription(task.description);
   };
-  
+
   return (
     <Box as="li" mb="2">
       {isEditing ? (
@@ -55,10 +55,17 @@ const Task = ({ task, onToggleCompleted, onDelete, onEdit }) => {
         </>
       ) : (
         <>
-          <Text fontSize="lg" fontWeight="bold" mr="2">
+          <Text
+            fontSize="lg"
+            fontWeight="bold"
+            mr="2"
+            textDecoration={task.completed ? 'line-through' : 'none'}
+          >
             {task.name}
           </Text>
-          <Text mb="2">{task.description}</Text>
+          <Text mb="2" textDecoration={task.completed ? 'line-through' : 'none'}>
+            {task.description}
+          </Text>
           <Checkbox
             isChecked={task.completed}
             onChange={handleToggleCompleted}
@@ -79,6 +86,8 @@ const Task = ({ task, onToggleCompleted, onDelete, onEdit }) => {
 };
 
 export default Task;
+
+
 
          
 
